@@ -44,46 +44,6 @@ router.post( '/api/transaction/update/:id', async ( req, res ) => {
 });
 
 
-router.get( '/', async ( req, res ) => {
-  let all = null;
-
-  const mods = await Transaction
-    .find( {} )
-    .sort( {
-      date: -1
-    } )
-    .catch( e => console.log( e ) );
-  try {
-    if ( mods.length ) {
-      all = mods.map( ( d ) => {
-        return {
-          ...d.toJSON(),
-        }
-      } );
-    } else {
-      all = demo.map( ( d ) => {
-        return {
-          ...d,
-        }
-      } );
-    }
-
-  } catch ( error ) {
-    console.log( '\n' + error );
-
-    all = demo.map( ( d ) => {
-      return {
-        ...d,
-      }
-    } );
-  }
-
-
-  res.render( 'dashboard', {
-    data: all,
-  } );
-} );
-
 router.get( "/api/transaction/seed", async ( req, res ) => {
   const existing = await Transaction.find( {} ).catch( e => console.log( e ) );
 
