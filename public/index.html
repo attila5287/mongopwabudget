@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="Description"
+      content="budget tracker app with mongo DB, object storage, express, express-handlebars and bootstrap dashboard example" />
+    <meta name="author" content="attila5287">
+    <link rel="icon" type="image/x-icon" class="favicon"
+      href="https://raw.githubusercontent.com/attila5287/mongobudget/main/favicon.ico" />
+
+    <meta name="generator" content="Jekyll v4.0.1">
+    <title>Mongo Budget</title>
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="canonical"
+      href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/custom.css" rel="stylesheet">
+    <link href="/css/dashboard.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+  </head>
+
+  <body class="my-5 py-5 my-sm-0 py-sm-0">
+
+    <form id="new_item_form" action="/api/transaction" method="post">
+      <nav
+        class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3"
+          href="http://mongobudget.herokuapp.com">
+          <span class="text-secondary text-reg mr-0 text-ubu text-lg">
+            Mongo
+            <span
+              class="shadow-lg text-dark font-weight-bold bg-success px-1 py-0 rounded-xl">Budget</span>
+            <span class="text-success">Tracker</span>
+          </span>
+          <img
+            src="https://raw.githubusercontent.com/attila5287/mongobudget/main/budget.png"
+            class="img-mini bg-transparent rounded-up" alt="dev-img">
+        </a>
+
+        <button class="navbar-toggler position-absolute d-md-none collapsed"
+          type="button" data-toggle="collapse" data-target="#sidebarMenu"
+          aria-controls="sidebarMenu" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <input class="form-control form-control-dark form-control-sm w-100 ml-1"
+          id="description" name="description" type="text"
+          placeholder="Description">
+
+        <input class="form-control form-control-dark form-control-sm w-100 ml-1"
+          id="amount" name="amount" type="text" placeholder="Amount">
+
+        <select
+          class="custom-select custom-select-sm text-sm form-control form-control-dark form-control-sm text-secondary ml-1 py-0"
+          name="category" id="category">
+          <option selected hidden> Category </option>
+          <option>in</option>
+          <option>out</option>
+        </select>
+
+        <ul class="navbar-nav px-0">
+          <li class="nav-item text-nowrap">
+            <input class="btn btn-outline-success btn-block btn-lg"
+              type="submit" value="Add">
+          </li>
+        </ul>
+
+      </nav>
+    </form>
+
+    <div class="container-fluid">
+      <div class="row">
+
+        <nav id="sidebarMenu"
+          class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse mt-5 pt-5 mt-sm-2 pt-sm-2">
+          <div class="sidebar-sticky mt-5 pt-5 mt-sm-2 pt-sm-2">
+            <ul class="nav flex-column text-ubu pt-5">
+              <li class="nav-item">
+                <a class="nav-link text-success" href="/">
+                  <i class="fas fa-tachometer-alt text-2xl fa-fw"></i>
+                  Dashboard
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-secondary"
+                  href="https://github.com/attila5287/mongobudget">
+                  <i class="fab fa-github text-2xl fa-fw"></i>
+                  Github
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-secondary"
+                  href="https://attila5287.github.io/">
+                  <img
+                    src="https://avatars.githubusercontent.com/u/42498753?s=48&v=4"
+                    class="img-mini bg-transparent rounded-up" alt="dev-img">
+                  Developer
+                </a>
+              </li>
+            </ul>
+            <ul class="nav flex-column text-ubu p-4">
+              <p
+                class="animated bounce my-0 text-center text-muted font-weight-bold opac-50 font-italic">
+                powered by...</p>
+              <h1
+                class="title animated infinite heartBeat delay-5s mr-4 fab fa-node text-success text-center mb-0">
+              </h1>
+              <p class="mt-0 border-bottom border-secondary"></p>
+              <p class="animated bounceInLeft font-italic">
+                <i class="fas fa-cog text-lg fa-spin" aria-hidden="true"></i>
+                <i class="fas fa-cog text-2xl fa-pulse text-success"
+                  aria-hidden="true"></i>
+                <i class="fas fa-sun text-lg fa-spin" aria-hidden="true"></i>
+                A full-stack budget-tracker app that collects transactions by
+                user and stores them in database</p>
+              <p class="my-3 animated zoomIn delay-1s text-muted font-italic">
+                <i class="mr-0 fab fa-npm text-2xl fa-fw text-danger"></i>
+                packages and libraries:</p>
+              <p class="my-3 animated bounceInLeft delay-1s"> <i
+                  class="mr-4 fas fa-database text-lg fa-fw"></i> mongo DB</p>
+              <p class="my-3 animated bounceInLeft delay-2s"> <i
+                  class="mr-4 fas fa-server text-lg fa-fw"></i>express-js
+                framework </p>
+              <p class="my-3 animated bounceInLeft delay-3s"> <i
+                  class="mr-4 fab fa-html5 text-lg fa-fw"></i>express handlebars
+              </p>
+              <p class="my-3 animated bounceInLeft delay-4s"> <i
+                  class="mr-4 fab fa-css3 text-lg fa-fw"></i>bootstrap css </p>
+
+
+            </ul>
+          </div>
+        </nav>
+        <main role="main"
+          class="col-md-9 ml-sm-auto col-lg-10 px-md-4 pt-5 mt-5">
+          <p class="text-light text-ubu" id="indexedDB_msg"></p>
+          <p id="indexedDB_error"></p>
+          <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-5 pt-sm-2 pb-2  mt-5 mt-sm-2 mb-3 border-bottom border-success">
+            <h2 class="text-ubu text-success mt-5 pt-5 mt-sm-2 pt-sm-2">
+              <i class="fas fa-chart-bar"></i>
+              Chart</h1>
+              <div class="btn-toolbar mb-2 mb-md-0">
+                <div class="btn-group mr-2">
+                  <button id="coll_chrt_button"
+                    class="btn btn-outline-success px-5 rounded-xl"
+                    type="button" data-toggle="collapse"
+                    data-target="#chart_div" aria-expanded="false"
+                    aria-controls="chart_div">
+                    <i id="coll_chrt_icon" class="fas fa-chevron-down pr-2"
+                      aria-hidden="true"></i>
+                    Show/Hide
+                  </button>
+                </div>
+              </div>
+          </div>
+          <div id="chart_div" class="collapse show">
+            <canvas class="my-4 w-100" id="my-chart" width="900"
+              height="380"></canvas>
+
+          </div>
+
+          <h6
+            class="text-center text-ubu justify-content-center d-flex align-items-center">
+            <span class="text-lg pr-1">
+              &reg;
+            </span>
+            budget tracker with mongo db ,
+            <span class="text-success pl-2">
+              a node.js app
+            </span>
+            <i class="fab fa-node-js text-success text-2xl pl-1 pr-2"></i>
+            by
+            <a class="text-info pl-2"
+              href="https://github.com/attila5287/mongobudget">
+              <i class="fab fa-github-alt text-lg">
+              </i>
+              attila5287
+            </a>
+
+          </h6>
+          <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom border-success">
+            <h2 class="text-ubu text-success">
+              <i class="fas fa-table"></i>
+              Table</h2>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <div class="btn-group mr-2">
+                <button id="coll_tabl_button"
+                  class="btn btn-outline-success px-5 rounded-xl" type="button"
+                  data-toggle="collapse" data-target="#tbl"
+                  aria-expanded="false" aria-controls="tbl">
+                  <i id="coll_tabl_icon" class="fas fa-chevron-down pr-2"
+                    aria-hidden="true"></i>
+                  Show/Hide
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {{#each data as |d|}}
+            <form class="mini collapse" id="row{{d._id}}"
+              action="/api/transaction/update/{{d._id}}" method="post">
+              <p class="text-muted text-center font-italic mb-0 mt-1">
+                Transaction Id: {{d._id}}
+                <span class="float-right">
+                  <a href="/api/transaction/delete/{{d._id}}"
+                    class="btn btn-outline-danger btn-sm my-0">Delete</a>
+                </span>
+
+              </p>
+              <h2 class="text-info border-bottom border-info pb-2">
+                <i class="fas fa-edit"></i>
+                Update Transaction
+              </h2>
+
+
+              <div class="form-group row align-items-center">
+                <label class="col-3 uplabel"
+                  for="description">Description</label>
+                <input type="text"
+                  class="col-8 form-control form-control-dark text-secondary"
+                  name="description" value="{{d.description}}">
+              </div>
+              <div class="form-group row">
+                <label class="col-3 uplabel" for="amount">Amount</label>
+                <input type="text"
+                  class="col-8 form-control form-control-dark text-secondary"
+                  name="amount" value="{{d.amount}}">
+              </div>
+              <div class="form-group row align-items-center d-none">
+                <label class="col-3 uplabel" for="date">Date</label>
+                <input type="text"
+                  class="col-8 form-control form-control-dark text-secondary"
+                  name="date" value="{{d.date}}">
+              </div>
+
+              <div class="form-group row align-items-center">
+                <label class="col-3 uplabel" for="category">Category</label>
+                <select
+                  class="col-8 form-control-dark custom-select text-secondary"
+                  name="category">
+                  <option selected>{{d.category}}</option>
+                  <option>in</option>
+                  <option>out</option>
+                </select>
+              </div>
+              <button type="submit"
+                class="btn btn-primary btn-block rounded-xl">Submit</button>
+            </form>
+          {{/each}}
+
+          <div class="collapse show" id="tbl">
+            <div class="table-responsive">
+              <table
+                class="table table-striped table-sm table-hover table-inverse table-borderless">
+                <thead
+                  class="text-lg border-bottom border-info text-info text-ubu">
+                  <tr>
+                    <th> +/- </th>
+                    <th> Description</th>
+                    <th> Amount</th>
+                    <th> Category</th>
+                    <th> Date</th>
+                    <th> Update</th>
+                  </tr>
+                </thead>
+                <tbody id="table_body">
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+
+
+        </main>
+
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.js">
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js">
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js">
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js">
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js">
+    </script>
+
+    <script src="/js/collapse/chart_div.js"></script>
+    <script src="/js/collapse/table_div.js"></script>
+
+
+    {{!-- chart or table then init later --}}
+    <script src="/js/render/chart.js"></script>
+    <script src="/js/render/table.js"></script>
+    <script src="/js/render/init.js"></script>
+
+    {{!-- first indexed_db then new_item after init above--}}
+    <script src="/js/db/indexedDB.js"></script>
+    <script src="/js/forms/new_item.js"></script>
+  </body>
+
+</html>

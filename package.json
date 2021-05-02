@@ -1,0 +1,26 @@
+{
+  "name": "mongopwabudget",
+  "version": "1.0.0",
+  "description": "re-write code for mongobudget.herokuapp.com for progressive web applications, no express-handlebars",
+  "main": "server copy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/attila5287/mongopwabudget.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/attila5287/mongopwabudget/issues"
+  },
+  "homepage": "https://github.com/attila5287/mongopwabudget#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.12.7",
+    "morgan": "^1.10.0"
+  }
+}
